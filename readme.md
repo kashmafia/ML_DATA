@@ -7,3 +7,4 @@ Once, the missing values have been filled in, you can basically just run **knn.p
 
 
 ## Running Part 2
+To run the missing value estimation algorithm, you need to run the missing.py file. Make sure the file path on line 4 matches where the dataset file you want to use is on your system. Make sure to also change the delimiter on line 5 to match the delimiter in the dataset file you want to use, if need be. Finally, on line 129, change the file name of the new dataset that has the estimated values inputted, to whatever you like.   
