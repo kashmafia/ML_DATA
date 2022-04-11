@@ -1,8 +1,8 @@
 import csv
 import math
 
-filename = open("C:/Users/KASH/Desktop/ML_DATA/TrainData3.txt", "r")
-reader = csv.reader(filename, delimiter='\t')
+filename = open("C:/Users/KASH/Desktop/ML_DATA/TrainData1.txt", "r")
+reader = csv.reader(filename, delimiter="\t")
 
 # this nested list contains all the data from the dataset text file
 dataset = []
@@ -91,12 +91,33 @@ def calculate_missing_value(dataset, distances, tuple_i):
             if dataset[neighbors[j]][missing_index[i]] == "1.00000000000000e+99":
                 continue
             else:
-                sum += float(dataset[neighbors[j]][missing_index[i]])
                 values += 1
-        # the mean of the values of the three nearest neighbors that are at the same index of the missing index is calculated
-        imputed_val = sum / values
-        # the estimated value is then imputed into the dataset
-        dataset[tuple_i][missing_index[i]] = str(imputed_val)
+                sum += float(dataset[neighbors[j]][missing_index[i]])
+
+        # if at least one of the nearest neighbors has a valid value, the missing value is calculated accordingly
+        if values != 0:
+            # the mean of the values of the three nearest neighbors that are at the same index of the missing index is calculated
+            imputed_val = sum / values
+            # the estimated value is then imputed into the dataset
+            dataset[tuple_i][missing_index[i]] = str(imputed_val)
+        # if none of the nearest neighbors have a valid value, the missing value is estimated in a naive way
+        # it estimates the missing value by finding the mean of all of the valid attributes/values of the inputted tuple
+        else:
+            naive = 0
+            values1 = 0
+
+            for k in range(len(dataset[tuple_i])):
+                if (
+                    dataset[tuple_i][k] == 0
+                    or dataset[tuple_i][k] == "1.00000000000000e+99"
+                ):
+                    continue
+                else:
+                    values1 += 1
+                    naive += float(dataset[tuple_i][k])
+
+            naive = naive / values1
+            dataset[tuple_i][missing_index[i]] = str(naive)
 
 
 # once the two functions below run, the "dataset" list will now be updated with the missing values replaced with the estimated values
@@ -105,7 +126,7 @@ find_missing_value(dataset, distances)
 
 
 # takes the updated dataset and writes it to a text file
-with open("TrainData3.txt", "w") as file:
+with open("TrainData1Updated.txt", "w") as file:
     for item in dataset:
         file.write("\t".join(item))
         file.write("\n")

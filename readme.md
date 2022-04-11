@@ -7,3 +7,8 @@ Once, the missing values have been filled in, you can basically just run **knn.p
 
 
 ## Running Part 2
+
+
+
+
+Note: The TrainData files w/the updated extension means that their missing values have been filled in by **missing.py**
