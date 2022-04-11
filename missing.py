@@ -1,7 +1,11 @@
 import csv
 import math
 
+<<<<<<< HEAD
 filename = open("C:/Users/KASH/Desktop/ML_DATA/TrainData1.txt", "r")
+=======
+filename = open("/home/kblanco2/machine-learning-project/MissingData1.txt", "r")
+>>>>>>> 4f667e6574a70f0b74350802d640eace97987b62
 reader = csv.reader(filename, delimiter="\t")
 
 # this nested list contains all the data from the dataset text file
@@ -126,7 +130,11 @@ find_missing_value(dataset, distances)
 
 
 # takes the updated dataset and writes it to a text file
+<<<<<<< HEAD
 with open("TrainData1Updated.txt", "w") as file:
+=======
+with open("MissingData1.txt", "w") as file:
+>>>>>>> 4f667e6574a70f0b74350802d640eace97987b62
     for item in dataset:
         file.write("\t".join(item))
         file.write("\n")
