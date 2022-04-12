@@ -54,12 +54,12 @@ def find_missing_value(dataset, distances):
     for i in range(len(dataset)):
         for j in range(len(dataset[i])):
             if dataset[i][j] == "1.00000000000000e+99":
-                calculate_missing_value(dataset, distances, i)
+                calculate_missing_values(dataset, distances, i)
                 break
 
 
 # estimates the missing values for the tuple that is inputted in the function call
-def calculate_missing_value(dataset, distances, tuple_i):
+def calculate_missing_values(dataset, distances, tuple_i):
     # contains the inputted tuple's distance to every other tuple in the dataset
     tuple_dist = distances[tuple_i]
     # contains the four lowest distances from the inputted tuple's distance list
