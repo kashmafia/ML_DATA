@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import math
 from scipy.stats import mode
 
 #Formula to calculate the euclidian distance 
@@ -42,59 +43,51 @@ df_1 = pd.read_csv("TrainData1Updated.txt", sep = '\t', header=None)
 df_1_label = pd.read_csv("TrainLabel1.txt", sep='\t', header=None)
 df_1_test = pd.read_csv("TestData1.txt", sep='\t', header=None)
 
-df_1_pred = predict(df_1.to_numpy(), df_1_label.to_numpy(), df_1_test.to_numpy(), 3)
-print(len(df_1_pred))
-print(type(df_1_pred))
+k = int(math.sqrt(len(df_1))) + 1
+df_1_pred = predict(df_1.to_numpy(), df_1_label.to_numpy(), df_1_test.to_numpy(), k)
 with open("KollaBlancoClassification1", "w") as outfile:
     outfile.write("\n".join(str(item) for item in df_1_pred))
 
 
-# df_1 = pd.read_csv("TrainData2.txt", sep = '  ', header=None)
-# df_1_label = pd.read_csv("TrainLabel2.txt", sep='  ', header=None)
-# df_1_test = pd.read_csv("TestData2.txt", sep='  ', header=None)
+df_1 = pd.read_csv("TrainData2.txt", sep = '  ', header=None)
+df_1_label = pd.read_csv("TrainLabel2.txt", sep='  ', header=None)
+df_1_test = pd.read_csv("TestData2.txt", sep='  ', header=None)
 
-# print(df_1.shape)
-# print(df_1_label.shape)
-# print(df_1_test.shape)
-# df_1_pred = predict(df_1.to_numpy(), df_1_label.to_numpy(), df_1_test.to_numpy(), 3)
-# print(len(df_1_pred))
-# print(type(df_1_pred))
-# with open("KollaBlancoClassification2", "w") as outfile:
-#     outfile.write("\n".join(str(item) for item in df_1_pred))
+k = int(math.sqrt(len(df_1))) + 1
+df_1_pred = predict(df_1.to_numpy(), df_1_label.to_numpy(), df_1_test.to_numpy(), k)
+
+with open("KollaBlancoClassification2", "w") as outfile:
+    outfile.write("\n".join(str(item) for item in df_1_pred))
 
 
-# df_1 = pd.read_csv("TrainData3Updated.txt", sep = '\t', header=None)
-# df_1_label = pd.read_csv("TrainLabel3.txt", sep='\t', header=None)
-# df_1_test = pd.read_csv("TestData3.txt", sep=',', header=None)
+df_1 = pd.read_csv("TrainData3Updated.txt", sep = '\t', header=None)
+df_1_label = pd.read_csv("TrainLabel3.txt", sep='\t', header=None)
+df_1_test = pd.read_csv("TestData3.txt", sep=',', header=None)
 
-# df_1_pred = predict(df_1.to_numpy(), df_1_label.to_numpy(), df_1_test.to_numpy(), 3)
-# print(len(df_1_pred))
-# print(type(df_1_pred))
-# with open("KollaBlancoClassification3", "w") as outfile:
-#     outfile.write("\n".join(str(item) for item in df_1_pred))
+k = int(math.sqrt(len(df_1))) + 1
+df_1_pred = predict(df_1.to_numpy(), df_1_label.to_numpy(), df_1_test.to_numpy(), k)
 
-
-# df_1 = pd.read_csv("TrainData4.txt", sep = '  ', header=None)
-# df_1_label = pd.read_csv("TrainLabel4.txt", sep='\t', header=None)
-# df_1_test = pd.read_csv("TestData4.txt", sep='  ', header=None)
-
-# print(df_1.dtypes)
-# df_1_pred = predict(df_1.to_numpy(), df_1_label.to_numpy(), df_1_test.to_numpy(), 3)
-# print(len(df_1_pred))
-# print(type(df_1_pred))
-# with open("KollaBlancoClassification4", "w") as outfile:
-#     outfile.write("\n".join(str(item) for item in df_1_pred))
+with open("KollaBlancoClassification3", "w") as outfile:
+    outfile.write("\n".join(str(item) for item in df_1_pred))
 
 
-# df_1 = pd.read_csv("TrainData5.txt", sep = '  ', header=None)
-# df_1_label = pd.read_csv("TrainLabel5.txt", sep='  ', header=None)
-# df_1_test = pd.read_csv("TestData5.txt", sep='  ', header=None)
+df_1 = pd.read_csv("TrainData4.txt", sep = '  ', header=None)
+df_1_label = pd.read_csv("TrainLabel4.txt", sep='\t', header=None)
+df_1_test = pd.read_csv("TestData4.txt", sep='  ', header=None)
 
-# print(df_1.shape)
-# print(df_1_label.shape)
-# print(df_1_test.shape)
-# df_1_pred = predict(df_1.to_numpy(), df_1_label.to_numpy(), df_1_test.to_numpy(), 3)
-# print(len(df_1_pred))
-# print(type(df_1_pred))
-# with open("KollaBlancoClassification5", "w") as outfile:
-#     outfile.write("\n".join(str(item) for item in df_1_pred))
+k = int(math.sqrt(len(df_1))) + 1
+df_1_pred = predict(df_1.to_numpy(), df_1_label.to_numpy(), df_1_test.to_numpy(), k)
+
+with open("KollaBlancoClassification4", "w") as outfile:
+    outfile.write("\n".join(str(item) for item in df_1_pred))
+
+
+df_1 = pd.read_csv("TrainData5.txt", sep = '  ', header=None)
+df_1_label = pd.read_csv("TrainLabel5.txt", sep='  ', header=None)
+df_1_test = pd.read_csv("TestData5.txt", sep='  ', header=None)
+
+k = int(math.sqrt(len(df_1))) + 1
+df_1_pred = predict(df_1.to_numpy(), df_1_label.to_numpy(), df_1_test.to_numpy(), k)
+print(type(df_1_pred))
+with open("KollaBlancoClassification5", "w") as outfile:
+    outfile.write("\n".join(str(item) for item in df_1_pred))
